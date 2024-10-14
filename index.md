@@ -68,8 +68,7 @@
 - matsushima.shun.015(at)s.kyushu-u.ac.jp
 - is(at)shunm.work
 - Twitter: @shunmwork
-- Facebook: [https://fb.me/SmatsuS0814](smatsus0814)
-
+- Facebook: smatsus0814
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-TXCVH9YR94"></script>
 <script>
