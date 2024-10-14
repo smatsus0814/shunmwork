@@ -43,7 +43,7 @@
 
 ## 所属学会・主な発表経歴等
 - **コンピュータ利用教育学会（CIEC）**
-  - 「地方部のデジタルユースワーク拠点におけるプロボノの教育観に関する一考察」(2024PCカンファレンス 東京都立大学南大沢キャンパス 2024.8)
+  - [「地方部のデジタルユースワーク拠点におけるプロボノの教育観に関する一考察」](https://conference.ciec.or.jp/2024pcc/program/subcommittee/presentation/pcc069.html)(2024PCカンファレンス 東京都立大学南大沢キャンパス 2024.8)
   
 - **日本教育工学会（JSET）**
   
@@ -68,7 +68,7 @@
 - matsushima.shun.015(at)s.kyushu-u.ac.jp
 - is(at)shunm.work
 - Twitter: @shunmwork
-- Facebook: @smatsus0814
+- Facebook: [https://fb.me/SmatsuS0814](smatsus0814)
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-TXCVH9YR94"></script>
@@ -79,3 +79,13 @@
 
   gtag('config', 'G-TXCVH9YR94');
 </script>
+
+<head>
+  <!-- OGP Meta Tags -->
+  <meta property="og:title" content="松嶋 駿 / Matsushima Shun">
+  <meta property="og:description" content="九州大学大学院人間環境学府教育システム専攻 修士課程　在学 / Master Course at Department of Education, Graduate School of Human‐Environment Studies, Kyushu University (2023.04-)">
+  <meta property="og:url" content="https://shunm.work">
+  <meta property="og:type" content="website"> <!-- タイプは用途に合わせて変更 -->
+  <meta property="og:site_name" content="松嶋 駿 / Matsushima Shun">
+  <meta property="og:locale" content="ja_JP"> <!-- 言語設定 -->
+</head>
