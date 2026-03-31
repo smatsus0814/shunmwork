@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title></title>
+  <style>
+    /* --- 昭和テーブル感：最低限の素朴CSS --- */
+    body{
+      margin:0;
+      padding:0;
+      background:#f0f0f0;
+      color:#000;
+      font-family: "MS PGothic","MS Pゴシック","ＭＳ Ｐゴシック","Meiryo UI",Meiryo,Arial,sans-serif;
+      font-size:13px;
+      line-height:1.45;
+    }
+    a{ color:#0000ee; text-decoration:underline; }
+    a:hover{ color:#cc0000; }
+    .wrap{
+      width: 900px;
+      margin: 12px auto;
+      background:#fff;
+      border:1px solid #666;
+    }
+    .outer{
+      width:100%;
+      border-collapse:collapse;
+    }
+    .outer td{
+      border:1px solid #666;
+      vertical-align:top;
+    }
+    .header{
+      padding:8px 10px;
+      background:#e6e6e6;
+    }
+    .site-title{
+      font-size:18px;
+      font-weight:bold;
+    }
+    .subline{
+      font-size:12px;
+      color:#111;
+      margin-top:2px;
+    }
+    .header-right{
+      text-align:right;
+      font-size:12px;
+      white-space:nowrap;
+    }
+    .left{
+      width:190px;
+      background:#fafafa;
+    }
+    .left-inner{
+      width:100%;
+      border-collapse:collapse;
+    }
+    .left-inner td{
+      border:1px solid #666;
+      padding:6px 8px;
+    }
+    .menu-head{
+      background:#dcdcdc;
+      font-weight:bold;
+      text-align:center;
+    }
+    .menu-list{
+      line-height:1.8;
+    }
+    .menu-list a{
+      display:inline-block;
+      padding:1px 0;
+    }
+    .main{
+      padding:8px;
+      background:#fff;
+    }
+
+    .box{
+      width:100%;
+      border-collapse:collapse;
+      margin:0 0 10px 0;
+    }
+    .box td{
+      border:1px solid #666;
+      padding:7px 8px;
+    }
+    .box-head{
+      background:#dcdcdc;
+      font-weight:bold;
+    }
+    .muted{ color:#333; }
+    .tiny{ font-size:12px; }
+    .hr-dot{
+      border-top:1px dotted #666;
+      margin:6px 0;
+      height:0;
+    }
+
+    .works{
+      width:100%;
+      border-collapse:collapse;
+      margin-top:6px;
+    }
+    .works td{
+      border:1px solid #666;
+      padding:6px 8px;
+    }
+    .work-title{
+      background:#efefef;
+      font-weight:bold;
+    }
+
+    .skills{
+      width:100%;
+      border-collapse:collapse;
+      margin-top:6px;
+    }
+    .skills th, .skills td{
+      border:1px solid #666;
+      padding:5px 8px;
+    }
+    .skills th{
+      background:#efefef;
+      font-weight:bold;
+      text-align:left;
+    }
+
+    .footer{
+      padding:7px 10px;
+      background:#e6e6e6;
+      font-size:12px;
+    }
+
+    /* --- レスポンシブ（テーブル感は維持しつつ1カラム化） --- */
+@media (max-width: 940px){
+  .wrap{
+    width: 96vw;
+    margin: 10px auto;
+    overflow: visible; /* 横スクロールではなく、縦に組み替える */
+  }
+
+  /* 外側テーブルを“ブロック化”して縦積みにする */
+  .outer, .outer tr, .outer td{
+    display: block;
+    width: 100%;
+  }
+
+  /* 左メニューを上に回す */
+  .left{
+    width: 100%;
+  }
+
+  /* 左メニュー内も縦積みしやすく */
+  .left-inner, .left-inner tr, .left-inner td{
+    display: block;
+    width: 100%;
+  }
+
+  /* メニュー一覧を横並びにして省スペース化（昭和リンク集っぽいまま） */
+  .menu-list{
+    line-height: 1.9;
+  }
+  .menu-list a{
+    display: inline;
+    padding: 0;
+    margin-right: 10px;
+    white-space: nowrap;
+  }
+
+  /* メイン側の余白を少し減らす */
+  .main{
+    padding: 6px;
+  }
+
+  /* WORKSやSKILLSの“表”は横幅がきついので、最低限の対策 */
+  .skills{
+    display: block;
+    width: 100%;
+    overflow-x: visible;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+
+  .contact-hint{
+    color:#666;
+    font-style:italic;
+    font-size:12px;
+    margin-top:6px;
+    display:block;
+  }
+
+  /* Prevent horizontal movement on small screens */
+  @media (max-width: 940px){
+    html, body{ overflow-x: hidden; }
+    .wrap{ overflow-x: hidden; box-sizing: border-box; }
+    /* Ensure long words/URLs wrap instead of forcing width */
+    .tiny, .menu-list a, .contact-hint, .box td, .works td, .skills, a{
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+  }
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <table class="outer" role="presentation">
+      <!-- HEADER -->
+      <tr>
+        <td class="header" colspan="2">
+          <table style="width:100%; border-collapse:collapse;" role="presentation">
+            <tr>
+              <td>
+                <div class="site-title">江戸川　俊太郎</div>
+                <div class="subline">昭和人のポートフォリオサイト</div>
+              </td>
+              <td class="header-right">
+                最終更新：2526/2/3<br/>
+                </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <tr>
+        <!-- LEFT MENU -->
+        <td class="left">
+          <table class="left-inner" role="presentation">
+            <tr><td class="menu-head">メニュー</td></tr>
+            <tr>
+              <td class="menu-list">
+                ・<a href="#home">HOME</a><br/>
+                ・<a href="#news">おしらせ</a><br/>
+                ・<a href="#profile">PROFILE</a><br/>
+                ・<a href="#works">WORKS</a><br/>
+                ・<a href="#skills">SKILLS</a><br/>
+                ・<a href="#writing">WRITING</a><br/>
+                ・<a href="#contact">CONTACT</a><br/>
+                <div class="hr-dot"></div>
+                <div style="text-align:center; font-weight:bold; margin-bottom:2px;">外部リンク</div>
+                ・<a href="https://github.com/" target="_blank" rel="noopener">GitHub</a><br/>
+                ・<a href="https://x.com/" target="_blank" rel="noopener">X</a><br/>
+                ・<a href="#" onclick="alert('ブログURLを入れてください'); return false;">Blog</a><br/>
+              </td>
+            </tr>
+            <tr><td class="menu-head">ひとこと</td></tr>
+            <tr>
+              <td class="tiny">
+                余白が少ないほど味が出ます。<br/>
+                画像を増やしすぎないのがコツです。
+              </td>
+            </tr>
+          </table>
+        </td>
+
+        <!-- MAIN -->
+        <td class="main">
+          <a id="home"></a>
+          <table class="box" role="presentation">
+            <tr><td class="box-head">ひとこと</td></tr>
+            <tr>
+              <td>
+                <b>ポートフォリオをリメイクしました。</b><br/>
+                コンセプトは「昭和感」<br/>
+                といいつつ、随分生成AIに助けられたものですが……。<br/>                
+              </td>
+            </tr>
+          </table>
+
+          <a id="news"></a>
+          <table class="box" role="presentation">
+            <tr><td class="box-head">おしらせ／近況</td></tr>
+            <tr>
+              <td class="tiny">
+                [2026/02/03] サイトの雛形を作成しました<br/>
+              </td>
+            </tr>
+          </table>
+
+          <a id="profile"></a>
+          <table class="box" role="presentation">
+            <tr><td class="box-head">PROFILE</td></tr>
+            <tr>
+              <td>
+                <b>shunmwork</b><br/>
+                松嶋 駿 / Matsushima Shun<br/>
+                <div class="hr-dot"></div>
+                <div class="tiny">フリーランスを中心に事業開発・教材開発・システム構築などを行っています。</div>
+              </td>
+            </tr>
+          </table>
+
+          <a id="works"></a>
+          <table class="box" role="presentation">
+            <tr><td class="box-head">WORKS（制作物）</td></tr>
+            <tr>
+              <td>
+                <span class="muted tiny">作品ごとに小さいテーブルで区切ると「それっぽい」と、生成AIに言われました。</span>
+
+                <table class="works" role="presentation">
+                  <tr><td class="work-title">[Project A] 学習会の運営支援ツール（仮）</td></tr>
+                  <tr>
+                    <td class="tiny">
+                      <b>概要：</b>参加者管理・集計・帳票出力などをまとめた小ツール。<br/>
+                      <b>技術：</b>Python / Excel / VBA<br/>
+                      <b>リンク：</b>
+                      <a href="#" onclick="alert('デモURLを入れてください'); return false;">Demo</a> /
+                      <a href="#" onclick="alert('GitHub URLを入れてください'); return false;">GitHub</a>
+                    </td>
+                  </tr>
+                </table>
+
+                <table class="works" role="presentation">
+                  <tr><td class="work-title">[Project B] 連絡・申請の自動化（仮）</td></tr>
+                  <tr>
+                    <td class="tiny">
+                      <b>概要：</b>フォーム入力から帳票作成までを自動化し、手作業を削減。<br/>
+                      <b>技術：</b>Power Automate / SharePoint / Excel<br/>
+                      <b>リンク：</b>
+                      <a href="#" onclick="alert('説明ページURLを入れてください'); return false;">Page</a>
+                    </td>
+                  </tr>
+                </table>
+
+                <table class="works" role="presentation">
+                  <tr><td class="work-title">[Project C] テキスト分析パイプライン（仮）</td></tr>
+                  <tr>
+                    <td class="tiny">
+                      <b>概要：</b>日本語テキストを整形→集計→CSV出力を繰り返す分析用スクリプト。<br/>
+                      <b>技術：</b>Python（形態素解析）<br/>
+                      <b>リンク：</b>
+                      <a href="#" onclick="alert('リポジトリURLを入れてください'); return false;">Repo</a>
+                    </td>
+                  </tr>
+                </table>
+                <table class="works" role="presentation">
+                  <tr><td class="work-title">[D] フリーランス (2018.8〜)</td></tr>
+                  <tr>
+                    <td class="tiny">
+                      ・地方部におけるキャリア教育、デザイン・まちづくり教育等の事業開発に従事<br/>
+                      ・コロナ関連のオンライン化に関連するシステム開発・企画調整等を担当<br/>
+                      ・Web開発、ポスター・チラシ制作などを随時受注
+                    </td>
+                  </tr>
+                </table>
+
+                <table class="works" role="presentation">
+                  <tr><td class="work-title">[E] 特定非営利活動法人ムラツムギ（専務理事 / 事務局長）(2020.02-2022.6)</td></tr>
+                  <tr>
+                    <td class="tiny">
+                      ・自治体等と連携した集落点検活動や、小規模多機能自治に関わる調査研究事業の開発等に従事<br/>
+                      ・NPO法人化に伴う申請業務やバックオフィス全般を担当
+                    </td>
+                  </tr>
+                </table>
+
+                <table class="works" role="presentation">
+                  <tr><td class="work-title">[F] 特定非営利活動法人ニュークリエイター・オルグ（ディレクター）(2022.04-)</td></tr>
+                  <tr>
+                    <td class="tiny">
+                      ・小学生〜高校生向けのWebプログラミング／生成AI利活用教材の開発・講師<br/>
+                      ・中学校特別支援学級でのリモート遠隔指導など教育支援に従事
+                    </td>
+                  </tr>
+                </table>
+
+                <table class="works" role="presentation">
+                  <tr><td class="work-title">[G] 合同会社G-experience 「ハイラボ」スタッフ (2023.8-)</td></tr>
+                  <tr>
+                    <td class="tiny">
+                      ・休眠預金活用事業による「デジタル×子どもの居場所運営事業」を担当<br/>
+                      ・総務・経理、バックオフィスシステムの構築
+                    </td>
+                  </tr>
+                </table>
+
+                <table class="works" role="presentation">
+                  <tr><td class="work-title">[H] 某・国立大学（社会連携事業担当）(2025.1-)</td></tr>
+                  <tr>
+                    <td class="tiny">
+                      ・社会連携事業を担当
+                    </td>
+                  </tr>
+                </table>
+
+              </td>
+            </tr>
+          </table>
+
+          <a id="skills"></a>
+          <table class="box" role="presentation">
+            <tr><td class="box-head">SKILLS</td></tr>
+            <tr>
+              <td>
+                <table class="skills" role="presentation">
+                  <tr>
+                    <th style="width:180px;">分野</th>
+                    <th style="width:90px;">習熟</th>
+                    <th>メモ</th>
+                  </tr>
+                  <tr>
+                    <td>Python</td>
+                    <td>★★★★☆</td>
+                    <td class="tiny">分析・自動化中心。データ整形、CSV出力、簡易可視化。</td>
+                  </tr>
+                  <tr>
+                    <td>GAS / スプレッドシート</td>
+                    <td>★★★☆☆</td>
+                    <td class="tiny">運用寄りの仕組み化。フォーム連携や権限周り。</td>
+                  </tr>
+                  <tr>
+                    <td>VBA / Excel</td>
+                    <td>★★★☆☆</td>
+                    <td class="tiny">帳票・Word連携などの事務系自動化。</td>
+                  </tr>
+                  <tr>
+                    <td>文章（研究・技術）</td>
+                    <td>★★★★☆</td>
+                    <td class="tiny">論文・報告書の構造化、要約、注記整理。</td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+
+          <a id="writing"></a>
+          <table class="box" role="presentation">
+            <tr><td class="box-head">WRITING（文章）</td></tr>
+            <tr>
+              <td class="tiny">
+                ・<a href="#" onclick="alert('記事URLを入れてください'); return false;">記事：タイトル（仮）</a><br/>
+                ・<a href="#" onclick="alert('PDF URLを入れてください'); return false;">PDF：発表資料（仮）</a><br/>
+                ・<a href="#" onclick="alert('リンクURLを入れてください'); return false;">メモ：短文ログ（仮）</a><br/>
+              </td>
+            </tr>
+          </table>
+
+          <a id="contact"></a>
+          <table class="box" role="presentation">
+            <tr><td class="box-head">CONTACT</td></tr>
+            <tr>
+              <td class="tiny">
+                <b>メール：</b> is(at)shunm.work<br/>
+                <div class="contact-hint">atは@に置き換えるとかいう文言すら、生成AIに読み取られてしまいそうだけれど......</div>
+                <b>GitHub：</b> <a href="https://github.com/smatsus0814" target="_blank" rel="noopener">https://github.com/smatsus0814</a><br/>
+                <div class="hr-dot"></div>
+                  <div class="tiny">
+                    <b>所属学会・主な発表経歴等</b><br/>
+                    コンピュータ利用教育学会（CIEC） / 日本教育工学会（JSET） / 日本社会教育学会 / ほか<br/>
+                    <div style="margin-top:6px;"><b>Certifications</b><br/>第二種電気工事士（2022.8）／基本情報技術者試験 合格（2024.3）</div>
+                  </div>
+                  <div class="hr-dot"></div>
+                  <span class="muted">※フォームは置かず、テキスト連絡先だけにすると雰囲気が崩れにくいです。</span>
+              </td>
+            </tr>
+          </table>
+
+        </td>
+      </tr>
+
+      <!-- FOOTER -->
+      <tr>
+        <td class="footer" colspan="2">
+          © 2026 （ここに名前） / This site uses many tables. /
+          <a href="#home">▲ページ上へ</a>
+        </td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>
